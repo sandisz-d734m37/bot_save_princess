@@ -1,4 +1,5 @@
 require "pry"
+require_relative "old_create_matrix.rb"
 
 def displayPathtoPrincess(num, matrix)
     matrix = create_matrix(matrix)
@@ -25,5 +26,3 @@ def locate_princess(matrix)
     end
     location
 end
-
-binding.pry
