@@ -3,7 +3,7 @@ require "pry"
 
 describe "Bot Saves Princess" do
     before do
-        @matrix = "-,-,-\n-,m,-\np,-,-"
+        @matrix = ["---","-m-","p--"]
     end
 
     it "translates the input to an array of arrays" do
@@ -15,16 +15,16 @@ describe "Bot Saves Princess" do
         expect(locate_princess(matrix_array)).to eq([2, 0])
     end
 
-    it "outputs an array of moves made to get the user to the princess" do
+    it "prints the moves made to get the user to the princess" do
         matrix_array = create_matrix(@matrix)
         princess_loc = locate_princess(matrix_array)
         user_loc = [1,1]
 
         expect(princess_loc).to eq([2,0])
-        expect(create_path(user_loc, princess_loc)).to eq(["Down","Left"])
+        expect{ create_path(user_loc, princess_loc) }.to output("DOWN\nLEFT\n").to_stdout
     end
 
-    it "ultimately outputs the directions to the princess as a string" do
-        expect(displayPathtoPrincess(3, @matrix)).to eq("Down\nLeft")
+    it "ultimately outputs the directions to the princess to the terminal" do
+        expect{ displayPathtoPrincess(3, @matrix) }.to output("DOWN\nLEFT\n").to_stdout
     end
 end
