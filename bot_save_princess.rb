@@ -12,4 +12,18 @@ def create_matrix(matrix)
         string.split(",")
     end
 end
+
+def locate_princess(matrix)
+    location =[]
+    matrix.each_with_index do |array, row_num|
+        array.each_with_index do |item, column_num|
+            if item == "p"
+                location << row_num
+                location << column_num
+            end
+        end
+    end
+    location
+end
+
 binding.pry
