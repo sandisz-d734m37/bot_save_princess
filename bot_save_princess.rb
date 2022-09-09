@@ -3,8 +3,9 @@ require_relative "old_create_matrix.rb"
 
 def displayPathtoPrincess(num, matrix)
     matrix = create_matrix(matrix)
-    @user_loc = [num/2, num/2]
-    @princess_loc = locate_princess(matrix)
+    user_loc = [num/2, num/2]
+    princess_loc = locate_princess(matrix)
+    create_path(user_loc, princess_loc)
 end
 
 def create_matrix(matrix)
@@ -25,4 +26,30 @@ def locate_princess(matrix)
         end
     end
     location
+end
+
+def create_path(user_loc, princess_loc)
+    moves = []
+    user_loc.each_with_index do |num, index|
+        until num == princess_loc[index]
+            if index == 0
+                if num < princess_loc[index]
+                    num += 1
+                    moves << "Down"
+                elsif num > princess_loc[index]
+                    num -= 1
+                    moves << "Up"
+                end
+            else
+                if num < princess_loc[index]
+                    num += 1
+                    moves << "Right"
+                elsif num > princess_loc[index]
+                    num -= 1
+                    moves << "Left"
+                end 
+            end
+        end
+    end
+    moves
 end
