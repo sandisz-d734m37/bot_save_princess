@@ -1,8 +1,7 @@
 require "pry"
 
-def save_princess(num)
-    matrix = create_matrix(num)
-    matrix
+def save_princess(num, matrix = create_matrix(num))
+    display(matrix)
 end
 
 def create_matrix(num)
@@ -21,3 +20,8 @@ def create_matrix(num)
         "Input must be an odd number"
     end
 end
+
+def display(matrix)
+    matrix.each {|dash| puts dash.join("")}
+end
+# binding.pry
