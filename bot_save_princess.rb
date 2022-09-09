@@ -1,11 +1,14 @@
 require "pry"
 require_relative "old_create_matrix.rb"
 
-def displayPathtoPrincess(num, matrix)
-    matrix = create_matrix(matrix)
+def displayPathtoPrincess
+    puts "Input an odd number"
+    num = gets.to_i
+    matrix = old_create_matrix(num)
     user_loc = [num/2, num/2]
-    princess_loc = locate_princess(matrix)
+    princess_loc = @coords #locate_princess(matrix)
     move_array = create_path(user_loc, princess_loc)
+    old_display(matrix)
     move_array.join("\n")
 end
 
@@ -54,3 +57,5 @@ def create_path(user_loc, princess_loc)
     end
     return moves
 end
+
+binding.pry
