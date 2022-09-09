@@ -1,27 +1,15 @@
 require "pry"
 
-def save_princess(num, matrix = create_matrix(num))
-    display(matrix)
+def displayPathtoPrincess(num, matrix)
+    matrix = create_matrix(matrix)
+    @user_loc = [num/2, num/2]
+    @princess_loc = locate_princess(matrix)
 end
 
-def create_matrix(num)
-    if num.odd?
-        matrix = []
-        num.times do
-            row = []
-            num.times do
-                row << "-"
-            end
-            matrix << row
-        end
-        matrix[num/2][num/2] = "M"
-        matrix
-    else
-        "Input must be an odd number"
+def create_matrix(matrix)
+    matrix = matrix.split("\n")
+    matrix.map do |string|
+        string.split(",")
     end
 end
-
-def display(matrix)
-    matrix.each {|dash| puts dash.join("")}
-end
-# binding.pry
+binding.pry
