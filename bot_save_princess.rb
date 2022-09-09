@@ -5,7 +5,8 @@ def displayPathtoPrincess(num, matrix)
     matrix = create_matrix(matrix)
     user_loc = [num/2, num/2]
     princess_loc = locate_princess(matrix)
-    create_path(user_loc, princess_loc)
+    move_array = create_path(user_loc, princess_loc)
+    move_array.join("\n")
 end
 
 def create_matrix(matrix)
@@ -25,7 +26,7 @@ def locate_princess(matrix)
             end
         end
     end
-    location
+    return location
 end
 
 def create_path(user_loc, princess_loc)
@@ -51,5 +52,5 @@ def create_path(user_loc, princess_loc)
             end
         end
     end
-    moves
+    return moves
 end
