@@ -1,4 +1,4 @@
-require "./bot_save_princess.rb"
+require "./display_path_to_princess.rb"
 require "pry"
 
 describe "Bot Saves Princess" do

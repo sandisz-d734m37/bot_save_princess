@@ -1,5 +1,4 @@
 require "pry"
-require_relative "old_create_matrix.rb"
 
 
 def displayPathtoPrincess(n, grid)
