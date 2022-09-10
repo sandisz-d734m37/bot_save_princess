@@ -28,29 +28,29 @@ def locate_princess(matrix)
 end
 
 def create_path(user_loc, princess_loc)
-    user_loc.each_with_index do |num, index|
-        until num == princess_loc[index]
-            if index == 0
-                if num < princess_loc[index]
-                    num += 1
-                    print "DOWN\n"
-                elsif num > princess_loc[index]
-                    num -= 1
-                    print "UP\n"
-                end
-            else
-                if num < princess_loc[index]
-                    num += 1
-                    print "RIGHT\n"
-                elsif num > princess_loc[index]
-                    num -= 1
-                    print "LEFT\n"
-                end 
-            end
+    until user_loc == princess_loc
+        case
+        when user_loc[0] > princess_loc[0]; move = "UP\n"
+        when user_loc[0] < princess_loc[0]; move = "DOWN\n"
+        when user_loc[1] > princess_loc[1]; move = "LEFT\n"
+        when user_loc[1] < princess_loc[1]; move = "RIGHT\n"
+        else move = "You've found the princess!"
         end
+        print move
+        user_loc = adjust_user_loc(user_loc, move)
     end
 end
 
+def adjust_user_loc(user_loc, move)
+    case
+    when move == "UP\n"; user_loc[0] -= 1
+    when move == "DOWN\n"; user_loc[0] += 1
+    when move == "LEFT\n"; user_loc[1] -= 1
+    when move == "RIGHT\n"; user_loc[1] += 1
+    end
+    user_loc
+end
+        
 # -------------------------------
 # Tail from Hackerrank, if needed:
 
