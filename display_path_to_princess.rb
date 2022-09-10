@@ -15,7 +15,7 @@ def create_matrix(matrix)
 end
 
 def locate_princess(matrix)
-    location =[]
+    location = []
     matrix.each_with_index do |array, row_num|
         array.each_with_index do |item, column_num|
             if item == "p"
@@ -28,29 +28,25 @@ def locate_princess(matrix)
 end
 
 def create_path(user_loc, princess_loc)
-    user_loc.each_with_index do |num, index|
-        until num == princess_loc[index]
-            if index == 0
-                if num < princess_loc[index]
-                    num += 1
-                    print "DOWN\n"
-                elsif num > princess_loc[index]
-                    num -= 1
-                    print "UP\n"
-                end
-            else
-                if num < princess_loc[index]
-                    num += 1
-                    print "RIGHT\n"
-                elsif num > princess_loc[index]
-                    num -= 1
-                    print "LEFT\n"
-                end 
-            end
+    until user_loc == princess_loc
+        case
+        when user_loc[0] - princess_loc[0] > 0
+            move = "UP\n"
+            user_loc[0] -= 1
+        when user_loc[0] - princess_loc[0] < 0
+            move = "DOWN\n"
+            user_loc[0] += 1
+        when user_loc[1] - princess_loc[1] > 0
+            move = "LEFT\n"
+            user_loc[1] -= 1
+        when user_loc[1] - princess_loc[1] < 0
+            move = "RIGHT\n"
+            user_loc[1] += 1
         end
+        print move
     end
 end
-
+        
 # -------------------------------
 # Tail from Hackerrank, if needed:
 
