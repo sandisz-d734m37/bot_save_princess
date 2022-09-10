@@ -51,4 +51,17 @@ def create_path(user_loc, princess_loc)
     end
 end
 
+# -------------------------------
+# Tail from Hackerrank, if needed:
+
+# m = gets.to_i
+
+# grid = Array.new(m)
+
+# (0...m).each do |i|
+#     grid[i] = gets.strip
+# end
+
+# displayPathtoPrincess(m,grid)
+# -------------------------------
 
