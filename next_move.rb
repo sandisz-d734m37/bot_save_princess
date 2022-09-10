@@ -39,14 +39,10 @@ end
 def adjust_matrix(row, column, grid, move)
     grid[row][column] = "-"
     case
-    when move == "UP\n"
-        grid[row - 1][column] = "m"
-    when move == "DOWN\n"
-        grid[row + 1][column] = "m"
-    when move == "LEFT\n"
-        grid[row][column - 1] = "m"
-    when move == "RIGHT\n"
-        grid[row][column + 1] = "m"
+    when move == "UP\n"; grid[row - 1][column] = "m"
+    when move == "DOWN\n"; grid[row + 1][column] = "m"
+    when move == "LEFT\n"; grid[row][column - 1] = "m"
+    when move == "RIGHT\n"; grid[row][column + 1] = "m"
     end
     grid.map do |array|
         array.join
