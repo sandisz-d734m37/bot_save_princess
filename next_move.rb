@@ -3,7 +3,6 @@ require 'pry'
 def nextMove(n,r,c,grid)
     grid = create_matrix(grid)
     p_location = locate_princess(grid)
-    m_location = [r,c]
     case
     when r > p_location[0]; move = "UP\n"
     when r < p_location[0]; move = "DOWN\n"
