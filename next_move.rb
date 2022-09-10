@@ -5,10 +5,10 @@ def nextMove(n,r,c,grid)
     p_location = locate_princess(grid)
     m_location = [r,c]
     case
-    when r - p_location[0] > 0; move = "UP\n"
-    when r - p_location[0] < 0; move = "DOWN\n"
-    when c - p_location[1] > 0; move = "LEFT\n"
-    when c - p_location[1] < 0; move = "RIGHT\n"
+    when r > p_location[0]; move = "UP\n"
+    when r < p_location[0]; move = "DOWN\n"
+    when c > p_location[1]; move = "LEFT\n"
+    when c < p_location[1]; move = "RIGHT\n"
     else move = "You've found the princess!"
     end
     print move
