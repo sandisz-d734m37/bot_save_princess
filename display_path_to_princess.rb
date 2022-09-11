@@ -3,9 +3,9 @@ require "pry"
 
 def displayPathtoPrincess(n, grid)
     grid = create_matrix(grid)
-    user_loc = [n/2, n/2]
+    m_loc = [n/2, n/2]
     princess_loc = locate_princess(grid)
-    create_path(user_loc, princess_loc)
+    create_path(m_loc, princess_loc)
 end
 
 def create_matrix(matrix)
@@ -27,28 +27,28 @@ def locate_princess(matrix)
     end
 end
 
-def create_path(user_loc, princess_loc)
-    until user_loc == princess_loc
+def create_path(m_loc, princess_loc)
+    until m_loc == princess_loc
         case
-        when user_loc[0] > princess_loc[0]; move = "UP\n"
-        when user_loc[0] < princess_loc[0]; move = "DOWN\n"
-        when user_loc[1] > princess_loc[1]; move = "LEFT\n"
-        when user_loc[1] < princess_loc[1]; move = "RIGHT\n"
+        when m_loc[0] > princess_loc[0]; move = "UP\n"
+        when m_loc[0] < princess_loc[0]; move = "DOWN\n"
+        when m_loc[1] > princess_loc[1]; move = "LEFT\n"
+        when m_loc[1] < princess_loc[1]; move = "RIGHT\n"
         else move = "You've found the princess!"
         end
         print move
-        user_loc = adjust_user_loc(user_loc, move)
+        m_loc = adjust_m_loc(m_loc, move)
     end
 end
 
-def adjust_user_loc(user_loc, move)
+def adjust_m_loc(m_loc, move)
     case
-    when move == "UP\n"; user_loc[0] -= 1
-    when move == "DOWN\n"; user_loc[0] += 1
-    when move == "LEFT\n"; user_loc[1] -= 1
-    when move == "RIGHT\n"; user_loc[1] += 1
+    when move == "UP\n"; m_loc[0] -= 1
+    when move == "DOWN\n"; m_loc[0] += 1
+    when move == "LEFT\n"; m_loc[1] -= 1
+    when move == "RIGHT\n"; m_loc[1] += 1
     end
-    user_loc
+    m_loc
 end
         
 # -------------------------------
