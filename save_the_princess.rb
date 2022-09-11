@@ -20,7 +20,6 @@ grid[num/2][num/2] = "m"
 
 path_to_p_place_princess(grid, num)
 
-
 display(grid)
 
 puts "\nAll right, here's our grid." 
@@ -56,6 +55,7 @@ continue = gets.chomp.downcase
 
 case
 when continue == "y" || continue == "yes"
+    system("clear")
     puts "\nGreat! Enter another odd number, please!"
     num = gets.chomp.to_i
     grid = create_grid(num)
@@ -83,7 +83,9 @@ continue = gets.chomp.downcase
 
 case
 when continue == "y" || continue == "yes"
+    system("clear")
     puts "\nLet's get going!"
+    sleep(1)
     until p_loc == m_loc
         grid = nextMove(num, m_loc[0], m_loc[1], grid)
         m_loc = next_move_adjust_m_loc(m_loc, p_loc)
