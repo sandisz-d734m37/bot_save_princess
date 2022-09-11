@@ -10,6 +10,12 @@ num = gets.chomp.to_i
 
 grid = create_grid(num)
 
+until !grid.is_a?(String)
+    puts grid
+    num = gets.chomp.to_i
+    grid = create_grid(num)
+end
+
 grid[num/2][num/2] = "m"
 
 path_to_p_place_princess(grid, num)
@@ -53,6 +59,11 @@ when continue == "y" || continue == "yes"
     puts "\nGreat! Enter another odd number, please!"
     num = gets.chomp.to_i
     grid = create_grid(num)
+    until !grid.is_a?(String)
+        puts grid
+        num = gets.chomp.to_i
+        grid = create_grid(num)
+    end
     p_loc = next_move_place_princess(grid, num)
     m_loc = next_move_place_bot(grid, num)
 when continue == "n" || continue == "no"
@@ -77,7 +88,7 @@ when continue == "y" || continue == "yes"
         grid = nextMove(num, m_loc[0], m_loc[1], grid)
         m_loc = next_move_adjust_m_loc(m_loc, p_loc)
         display(grid)
-        sleep(1)
+        sleep(0.5)
     end
 when continue == "n" || continue == "no"
     puts "\nBut we're so close......"
