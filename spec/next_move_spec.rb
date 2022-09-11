@@ -13,6 +13,6 @@ describe "Bot Saves Princess" do
 
     it "adjust_matrix uses the output of nextMove (i.e LEFT) to adjust the matrix" do
         grid = create_matrix(@matrix)
-        expect(adjust_matrix(2,3,grid,"LEFT\n")).to eq(["-----","-----","p-m--","-----","-----"])
+        expect(adjust_matrix(2,3,grid,[2,0])).to eq(["-----","-----","p-m--","-----","-----"])
     end
 end

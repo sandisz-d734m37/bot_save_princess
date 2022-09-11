@@ -24,8 +24,8 @@ describe "Bot Saves Princess" do
         expect{ create_path(m_loc, princess_loc) }.to output("DOWN\nLEFT\n").to_stdout
     end
 
-    it "m_loc adjusts the user's location" do
-        expect(adjust_m_loc([1,1], "UP\n")).to eq([0,1])
+    it "adjust_m_loc adjusts the user's location" do
+        expect(adjust_m_loc([1,1], [0,1])).to eq([0,1])
     end
 
     it "displayPathtoPrincess ultimately outputs the directions to the princess to the terminal" do
