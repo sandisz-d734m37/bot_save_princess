@@ -1,12 +1,3 @@
-<style>
-summary{
-    font-size: 14px;
-}
-.section{
-    font-size: 12px;
-}
-</style>
-
 # Welcome to my Bot Saves Princess solve!
 
 #### This repository host's a solve for Hackerrank's _[Bot Saves Princess 1](https://www.hackerrank.com/challenges/saveprincess)_ and _[Bot Saves Princess 2](https://www.hackerrank.com/challenges/saveprincess2)_ challenges, alongside a version of the challenge you can view in your terminal.
@@ -38,8 +29,8 @@ summary{
 def displayPathtoPrincess(n, grid)
     grid = create_matrix(grid)
     m_loc = [n/2, n/2]
-    princess_loc = locate_princess(grid)
-    create_path(m_loc, princess_loc)
+    p_loc = locate_princess(grid)
+    create_path(m_loc, p_loc)
 end
 
 def create_matrix(matrix)
@@ -61,25 +52,25 @@ def locate_princess(matrix)
     end
 end
 
-def create_path(m_loc, princess_loc)
-    until m_loc == princess_loc
+def create_path(m_loc, p_loc)
+    until m_loc == p_loc
         case
-        when m_loc[0] > princess_loc[0]; move = "UP\n"
-        when m_loc[0] < princess_loc[0]; move = "DOWN\n"
-        when m_loc[1] > princess_loc[1]; move = "LEFT\n"
-        when m_loc[1] < princess_loc[1]; move = "RIGHT\n"
+        when m_loc[0] > p_loc[0]; move = "UP\n"
+        when m_loc[0] < p_loc[0]; move = "DOWN\n"
+        when m_loc[1] > p_loc[1]; move = "LEFT\n"
+        when m_loc[1] < p_loc[1]; move = "RIGHT\n"
         end
         print move
-        m_loc = adjust_m_loc(m_loc, princess_loc)
+        m_loc = adjust_m_loc(m_loc, p_loc)
     end
 end
 
-def adjust_m_loc(m_loc, princess_loc)
+def adjust_m_loc(m_loc, p_loc)
     case
-    when m_loc[0] > princess_loc[0]; m_loc[0] -= 1
-    when m_loc[0] < princess_loc[0]; m_loc[0] += 1
-    when m_loc[1] > princess_loc[1]; m_loc[1] -= 1
-    when m_loc[1] < princess_loc[1]; m_loc[1] += 1
+    when m_loc[0] > p_loc[0]; m_loc[0] -= 1
+    when m_loc[0] < p_loc[0]; m_loc[0] += 1
+    when m_loc[1] > p_loc[1]; m_loc[1] -= 1
+    when m_loc[1] < p_loc[1]; m_loc[1] += 1
     end
     m_loc
 end
@@ -104,17 +95,17 @@ displayPathtoPrincess(m,grid)
 
 def nextMove(n,r,c,grid)
     grid = create_matrix(grid)
-    p_location = locate_princess(grid)
+    p_loc = locate_princess(grid)
     case
-    when r > p_location[0]; move = "UP\n"
-    when r < p_location[0]; move = "DOWN\n"
-    when c > p_location[1]; move = "LEFT\n"
-    when c < p_location[1]; move = "RIGHT\n"
+    when r > p_loc[0]; move = "UP\n"
+    when r < p_loc[0]; move = "DOWN\n"
+    when c > p_loc[1]; move = "LEFT\n"
+    when c < p_loc[1]; move = "RIGHT\n"
     else move = "You've found the princess!"
     end
     print move
     unless move == "You've found the princess!"
-        adjust_matrix(r, c, grid, p_location)
+        adjust_matrix(r, c, grid, p_loc)
     end
 end
 
@@ -147,12 +138,12 @@ def adjust_matrix(row, column, grid, p_loc)
     end
 end
 
-def adjust_m_loc(m_loc, princess_loc)
+def adjust_m_loc(m_loc, p_loc)
     case
-    when m_loc[0] > princess_loc[0]; m_loc[0] -= 1
-    when m_loc[0] < princess_loc[0]; m_loc[0] += 1
-    when m_loc[1] > princess_loc[1]; m_loc[1] -= 1
-    when m_loc[1] < princess_loc[1]; m_loc[1] += 1
+    when m_loc[0] > p_loc[0]; m_loc[0] -= 1
+    when m_loc[0] < p_loc[0]; m_loc[0] += 1
+    when m_loc[1] > p_loc[1]; m_loc[1] -= 1
+    when m_loc[1] < p_loc[1]; m_loc[1] += 1
     end
     m_loc
 end
