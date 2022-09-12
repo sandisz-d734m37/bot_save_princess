@@ -24,10 +24,4 @@ describe "Save the Princess Runner Methods" do
             expect(options).to include(path_to_p_place_princess(matrix, 3))
         end
     end
-
-    describe "next_move_adjust_m_loc" do
-        it "adjusts the the bot, m's, location based on the princesses location" do
-            expect(next_move_adjust_m_loc([2,2],[3,3])).to eq([3,2])
-        end
-    end
 end

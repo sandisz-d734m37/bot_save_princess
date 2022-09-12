@@ -88,7 +88,7 @@ when continue == "y" || continue == "yes"
     sleep(1)
     until p_loc == m_loc
         grid = nextMove(num, m_loc[0], m_loc[1], grid)
-        m_loc = next_move_adjust_m_loc(m_loc, p_loc)
+        m_loc = adjust_m_loc(m_loc, p_loc)
         display(grid)
         sleep(0.5)
     end

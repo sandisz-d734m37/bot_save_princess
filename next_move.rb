@@ -1,4 +1,7 @@
 require 'pry'
+require_relative 'princess_saveable'
+include PrincessSaveable
+
 
 def nextMove(n,r,c,grid)
     grid = create_matrix(grid)
@@ -12,55 +15,16 @@ def nextMove(n,r,c,grid)
     end
     print move
     unless move == "You've found the princess!"
-        adjust_matrix(r, c, grid, move)
+        adjust_matrix(r, c, grid, p_location)
     end
 end
 
-def create_matrix(matrix)
-    matrix.map do |string|
-        string.split("")
-    end
-end
-
-def locate_princess(matrix)
-    location = Array.new
-    matrix.each_with_index do |array, row_num|
-        array.each_with_index do |item, column_num|
-            if item == "p"
-                location[0] = row_num
-                location[1] = column_num
-                return location
-            end
-        end
-    end
-end
-
-def adjust_matrix(row, column, grid, move)
+def adjust_matrix(row, column, grid, p_loc)
     grid[row][column] = "-"
-    case
-    when move == "UP\n"; grid[row - 1][column] = "m"
-    when move == "DOWN\n"; grid[row + 1][column] = "m"
-    when move == "LEFT\n"; grid[row][column - 1] = "m"
-    when move == "RIGHT\n"; grid[row][column + 1] = "m"
-    end
+    m_loc = [row, column]
+    m_loc = adjust_m_loc(m_loc, p_loc)
+    grid[m_loc[0]][m_loc[1]] = "m"
     grid.map do |array|
         array.join
     end
 end
-
-
-# -------------------------------
-# Tail from Hackerrank, if needed:
-
-# n = gets.to_i
-
-# r,c = gets.strip.split.map {|num| num.to_i}
-
-# grid = Array.new(n)
-
-# (0...n).each do |i|
-#     grid[i] = gets
-# end
-
-# nextMove(n,r,c,grid)
-# -------------------------------

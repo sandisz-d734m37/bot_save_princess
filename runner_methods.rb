@@ -51,16 +51,6 @@ def next_move_place_princess(matrix, num)
     [row, col]
 end
 
-def next_move_adjust_m_loc(m_loc, princess_loc)
-    case
-    when m_loc[0] > princess_loc[0]; m_loc[0] -= 1
-    when m_loc[0] < princess_loc[0]; m_loc[0] += 1
-    when m_loc[1] > princess_loc[1]; m_loc[1] -= 1
-    when m_loc[1] < princess_loc[1]; m_loc[1] += 1
-    end
-    m_loc
-end
-
 #---------------------------------------------
 #---------------Display Matrix----------------
 #---------------------------------------------
