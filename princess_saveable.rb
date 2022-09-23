@@ -6,23 +6,20 @@ module PrincessSaveable
     end
 
     def locate_princess(matrix)
-        # location = Array.new
-        # matrix.each_with_index do |array, row_num|
-        #     t = array.find_index do |item|
-        #         item == "p"
-        #     end
-        # end
-
         row = find_row(matrix)
-        column = matrix[row].index do |str|
-            str == "p"
-        end
+        column = find_column(matrix, row)
         return [row, column]
     end
 
     def find_row(matrix)
         matrix.index do |array|
             array.include?("p")
+        end
+    end
+
+    def find_column(matrix, row_index)
+        matrix[row_index].index do |str|
+            str == "p"
         end
     end
 
