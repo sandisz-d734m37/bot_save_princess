@@ -9,10 +9,23 @@ describe "Bot Saves Princess" do
     it "create_matrix translates the input to an array of arrays" do
         expect(create_matrix(@matrix)).to eq([["-","-","-",],["-","m","-",],["p","-","-",]])
     end
+    
+    describe "locate_princess" do
+        before do
+            @matrix_array = create_matrix(@matrix)
+        end
+        it "helper: find_row returns the index of the row 'p' is in" do
+            expect(find_row(@matrix_array)).to eq(2)
+        end
 
-    it "locate_princess locates the princess" do
-        matrix_array = create_matrix(@matrix)
-        expect(locate_princess(matrix_array)).to eq([2, 0])
+        it "helper: find_column returns the index of 'p' using the row found above" do
+            row_index = find_row(@matrix_array)
+            expect(find_column(@matrix_array, row_index)).to eq(0)
+        end
+
+        it "ultimately locates the princess" do
+            expect(locate_princess(@matrix_array)).to eq([2, 0])
+        end
     end
 
     it "create_path prints the moves made to get the user to the princess" do
