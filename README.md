@@ -40,15 +40,20 @@ def create_matrix(matrix)
 end
 
 def locate_princess(matrix)
-    location = Array.new
-    matrix.each_with_index do |array, row_num|
-        array.each_with_index do |item, column_num|
-            if item == "p"
-                location[0] = row_num
-                location[1] = column_num
-                return location
-            end
-        end
+    row = find_row(matrix)
+    column = find_column(matrix, row)
+    return [row, column]
+end
+
+def find_row(matrix)
+    matrix.index do |array|
+        array.include?("p")
+    end
+end
+
+def find_column(matrix, row_index)
+    matrix[row_index].index do |str|
+        str == "p"
     end
 end
 
@@ -116,15 +121,20 @@ def create_matrix(matrix)
 end
 
 def locate_princess(matrix)
-    location = Array.new
-    matrix.each_with_index do |array, row_num|
-        array.each_with_index do |item, column_num|
-            if item == "p"
-                location[0] = row_num
-                location[1] = column_num
-                return location
-            end
-        end
+    row = find_row(matrix)
+    column = find_column(matrix, row)
+    return [row, column]
+end
+
+def find_row(matrix)
+    matrix.index do |array|
+        array.include?("p")
+    end
+end
+
+def find_column(matrix, row_index)
+    matrix[row_index].index do |str|
+        str == "p"
     end
 end
 
