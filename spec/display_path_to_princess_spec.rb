@@ -17,8 +17,12 @@ describe "Bot Saves Princess" do
             expect(find_row(@matrix_array)).to eq(2)
         end
 
+        it "helper: find_column returns the index of 'p' using the row found above" do
+            row_index = find_row(@matrix_array)
+            expect(find_column(@matrix_array, row_index)).to eq(0)
+        end
+
         it "ultimately locates the princess" do
-            # matrix_array = create_matrix(@matrix)
             expect(locate_princess(@matrix_array)).to eq([2, 0])
         end
     end
