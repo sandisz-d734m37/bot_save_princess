@@ -9,6 +9,7 @@ describe "Bot Saves Princess" do
     it "create_matrix translates the input to an array of arrays" do
         expect(create_matrix(@matrix)).to eq([["-","-","-",],["-","m","-",],["p","-","-",]])
     end
+    
     describe "locate_princess" do
         before do
             @matrix_array = create_matrix(@matrix)
